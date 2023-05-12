@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>اختبار الكتروني</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items:right;
+      justify-content: right;
+      height: 100vh;
+      margin: 20px;
+      padding: 20px;
+      background-color: lightskyblue; /* Replace with your desired background color */
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    label {
+      text-align: right;
+        font-size: 20pxdisplay: flex;
+      justify-content: flex-end;
+      align-items: right;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    input[type="radio"] {
+      margin-left: 10px;
+    }
+
+    input[type="button"] {
+      margin-top: 20px;
+      align-self: center;
+      font-size: 30px;
+    }
+      #score {
+      font-size: 40px;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+  <script>
+    function calculateScore() {
+      // Get user's selected answers
+      var answer1 = document.querySelector('input[name="question1"]:checked');
+      var answer2 = document.querySelector('input[name="question2"]:checked');
+      var answer3 = document.querySelector('input[name="question3"]:checked');
+      
+      // Calculate the score
+      var score = 0;
+      if (answer1 && answer1.value === "correct") {
+        score += 1;
+      }
+      if (answer2 && answer2.value === "correct") {
+        score += 1;
+      }
+      if (answer3 && answer3.value === "correct") {
+        score += 1;
+      }
+      
+      // Display the score
+      document.getElementById('score').innerHTML = "النتيجة :  " + score + "/3";
+    }
+  </script>
+</head>
+<body>
+  <h1>اختبار الحاسب الالي للصف الاول الثانوي</h1>
+  
+  <form>
+    <h2>السؤال الاول : ملفات الصور الثابتة تأخذ الامتداد </h2>
+    <label>
+      <input type="radio" name="question1" value="incorrect"> .wmf
+    </label>
+    <label>
+      <input type="radio" name="question1" value="incorrect"> .bmp
+    </label>
+    <label>
+      <input type="radio" name="question1" value="correct"> كل ماسبق ذكره
+    </label>
+    
+    <h2>السؤال الثاني: انسب ادوات التحكم التي يمكن استخدامها في عرض قائنة الاسماء هي </h2>
+    <label>
+      <input type="radio" name="question2" value="correct"> Combobox
+    </label>
+    <label>
+      <input type="radio" name="question2" value="incorrect">Button
+    </label>
+    <label>
+      <input type="radio" name="question2" value="incorrect"> Picture Box
+    </label>
+    
+    <h2>السؤال الثالث: ملف الفيديو الاقل حجما </h2>
+    <label>
+      <input type="radio" name="question3" value="incorrect"> Filename.mgp
+    </label>
+    <label>
+      <input type="radio" name="question3" value="correct">Filename.3gp
+    </label>
+    <label>
+      <input type="radio" name="question3" value="incorrect"> Filename.mp4
+    </label>
+    
+    <br><br>
+    <input type="button" value="Submit" onclick="calculateScore()">
+  </form>
+  
+  <br>
+  <div id="score"></div>
+</body>
+</html>
